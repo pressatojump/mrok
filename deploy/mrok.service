@@ -1,0 +1,17 @@
+[Unit]
+Description=mrok tunnel relay
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/mrok server --http 0.0.0.0:80 --https 0.0.0.0:443 --token-file /etc/mrok/token --data-dir /var/lib/mrok --max-tunnels 64
+Restart=always
+RestartSec=2
+LimitNOFILE=65535
+MemoryMax=400M
+Environment=GOGC=50
+Environment=MROK_DATA=/var/lib/mrok
+
+[Install]
+WantedBy=multi-user.target

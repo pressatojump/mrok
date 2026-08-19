@@ -1,0 +1,10 @@
+/bin/
+/dist/
+*.pem
+*.key
+.env
+.idea/
+.vscode/
+.DS_Store
+endpoint.local
+deploy/mrok-aws.pem
